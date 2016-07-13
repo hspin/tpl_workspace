@@ -1,0 +1,37 @@
+# ~/.tmuxinator/
+
+name: uno11
+root: dos22
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim: 
+          - cd htdocs
+          - vim
+        - node:
+          - ssh workbench
+          - clear
+          - cd dos22/htdocs
+          - node -v
+  - db:
+    - ssh workbench
+    - clear
+    - cd dos22/htdocs
+    - ls
+  - logs:
+    - ssh workbench
+    - clear
+    - cd dos22/htdocs
+    - ls -la
+
+
+
+# orig basic layout
+#  - editor: docker run --rm -e="TERM=screen-256color" -v $(pwd)/.sessions/:/home/uservim/.sessions -v $(pwd)/NAME:/home/uservim/code/ -it me_vim
+#  - server: sleep 2; docker run --rm -p 9000:9000 -p 8001:8001 -p 3000:3000 -p 35729:35729 -v $(pwd)/NAME:/home/deployer/code/ --link mymongodb:mymongodb -it me_webapp
+
+
+        # - docker run --rm -e="TERM=screen-256color" -v $(pwd)/.sessions/:/home/uservim/.sessions -v $(pwd)/NAME:/home/uservim/code/ -it me_vim
+        # - sleep 2; docker run --rm -p 9000:9000 -p 8001:8001 -p 3000:3000 -p 35729:35729 -v $(pwd)/NAME:/home/deployer/code/ --link mymongodb:mymongodb -it me_webapp
